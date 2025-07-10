@@ -1,3 +1,4 @@
+import { count } from 'console';
 import { reset, seed } from 'drizzle-seed';
 import { db, sql } from './conection.ts';
 import { schema } from './schema/index.ts';
@@ -11,6 +12,9 @@ await seed(db, schema).refine((f) => {
         name: f.companyName(),
         description: f.loremIpsum(),
       },
+    },
+    questions: {
+      count: 20,
     },
   };
 });
